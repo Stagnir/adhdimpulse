@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  background: #f9f9f3;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  color: #2b2b2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.07);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fafafa;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  background: #caffbf;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #2b2b2b;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #b7e4c7;
+}
+
+.response {
+  margin-top: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  background: #f3f3ed;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.past-log {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
+
+.mission {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #777;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+  text-align: center;
+}
+

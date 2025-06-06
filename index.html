@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADHD-Impulse-Guard</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>ADHD-Impulse-Guard 🌿</h1>
+    <p>What are you about to spend money on?</p>
+
+    <input type="text" id="itemInput" placeholder="e.g. guitar, camera, mushroom kit..." />
+    <textarea id="journalEntry" placeholder="What draws you to this? What's the story?"></textarea>
+
+    <button onclick="checkImpulse()">Reflect</button>
+
+    <div class="response" id="responseBox"></div>
+    <div class="past-log" id="logBox"></div>
+
+    <footer class="mission">
+      <p>
+        <em>
+          This space exists to help you pause. To look at what’s real. Not to deny your passions — but to test if they’re actually *yours*.
+        </em>
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
