@@ -1,15 +1,34 @@
 const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
-  try {
-    const { item, story } = JSON.parse(event.body);
+  let item, story;
 
-    const prompt = `
+  // 🧠 Parse and validate the body
+  try {
+    const body = JSON.parse(event.body || "{}");
+    item = body.item;
+    story = body.story;
+
+    if (!item || !story) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Missing 'item' or 'story' in request body." }),
+      };
+    }
+  } catch (err) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Invalid JSON in request body." }),
+    };
+  }
+
+  const prompt = `
 Someone is considering buying "${item}" because "${story}".
 Offer a calm, wise reflection on why they may not need to act on this impulse.
 No shame. Just mindfulness and perspective.
 `;
 
+  try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -25,15 +44,14 @@ No shame. Just mindfulness and perspective.
 
     const data = await response.json();
 
-    if (!data.choices || !data.choices[0]?.message?.content) {
-      console.error("Unexpected OpenAI response:", data);
+    const message = data.choices?.[0]?.message?.content;
+    if (!message) {
+      console.error("OpenAI returned unexpected response:", data);
       return {
-        statusCode: 500,
-        body: JSON.stringify({ error: "Invalid response from OpenAI." }),
+        statusCode: 502,
+        body: JSON.stringify({ error: "No reflection generated from OpenAI." }),
       };
     }
-
-    const message = data.choices[0].message.content;
 
     return {
       statusCode: 200,
@@ -43,7 +61,7 @@ No shame. Just mindfulness and perspective.
     console.error("Server error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "The reflection service failed." }),
+      body: JSON.stringify({ error: "Failed to connect to reflection service." }),
     };
   }
 };
