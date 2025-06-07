@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ADHD Impulse</title>
+  <title>ADHD Impulse Guard</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <h1>ADHD Impulse Guard 🌿</h1>
-    <p>What are you about to spend money on?</p>
+    <p style="margin-bottom: 1.5rem;">What are you about to spend money on?</p>
 
     <input type="text" id="itemInput" placeholder="e.g. guitar, camera, mushroom kit..." />
     <textarea id="journalEntry" placeholder="What draws you to this? What's the story?"></textarea>
@@ -21,32 +21,53 @@
     <div class="response" id="responseBox"></div>
     <div class="past-log" id="logBox"></div>
 
-<footer class="mission">
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <a href="https://www.buymeacoffee.com/adhdimpulse" target="_blank" rel="noopener" style="
-      display: inline-block;
-      padding: 10px 18px;
-      background-color: #ffdd00;
-      color: #333;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      font-family: sans-serif;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: all 0.2s ease-in-out;
-    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      ☕ Buy me a coffee
-    </a>
-  </div>
-  <p>
-    <em>
-      This website exists to list the reasons why you shouldn't buy something and to help you reflect on if it's an impulse or a true interest. Whether you spend more time researching the gear, than doing the hobby or interest, with the gear you already have available
-    </em>
-  </p>
-</footer>
+    <footer class="mission">
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+        <a href="https://www.buymeacoffee.com/stagnir" target="_blank" rel="noopener" style="
+          display: inline-block;
+          padding: 10px 18px;
+          background-color: #ffdd00;
+          color: #333;
+          font-weight: bold;
+          border-radius: 8px;
+          text-decoration: none;
+          font-family: sans-serif;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          transition: all 0.2s ease-in-out;
+        "
+          onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+          ☕ Buy me a coffee
+        </a>
 
+        <a href="https://ko-fi.com/stagnir" target="_blank" rel="noopener" style="
+          display: inline-block;
+          padding: 10px 18px;
+          background-color: #29abe0;
+          color: #fff;
+          font-weight: bold;
+          border-radius: 8px;
+          text-decoration: none;
+          font-family: sans-serif;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          transition: all 0.2s ease-in-out;
+        "
+          onmouseover="this.style.transform='scale(1.05)'"
+          onmouseout="this.style.transform='scale(1)'"
+        >
+          🧡 Support me on Ko-fi
+        </a>
+      </div>
+
+      <p>
+        <em>
+          This website exists to list the reasons why you shouldn't buy something and to help you reflect on if it's an impulse or a true interest. Whether you spend more time researching the gear, than doing the hobby or interest, with the gear you already have available
+        </em>
+      </p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
