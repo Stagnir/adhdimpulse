@@ -1,9 +1,7 @@
 {
-  "name": "adhdimpulse-functions",
-  "version": "1.0.0",
-  "main": "reflect.js",
   "type": "module",
   "dependencies": {
     "node-fetch": "^3.4.0"
   }
 }
+
