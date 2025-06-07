@@ -25,11 +25,11 @@ No shame. Just mindfulness and perspective.
 
     const data = await response.json();
 
-    if (!data || !data.choices || !data.choices[0] || !data.choices[0].message) {
-      console.error("Unexpected API response format:", data);
+    if (!data.choices || !data.choices[0]?.message?.content) {
+      console.error("Unexpected OpenAI response:", data);
       return {
-        statusCode: 502,
-        body: JSON.stringify({ reflection: "The reflection service returned no usable response." }),
+        statusCode: 500,
+        body: JSON.stringify({ error: "Invalid response from OpenAI." }),
       };
     }
 
@@ -40,10 +40,10 @@ No shame. Just mindfulness and perspective.
       body: JSON.stringify({ reflection: message }),
     };
   } catch (err) {
-    console.error("Function error:", err);
+    console.error("Server error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Internal Server Error" }),
+      body: JSON.stringify({ error: "The reflection service failed." }),
     };
   }
 };
