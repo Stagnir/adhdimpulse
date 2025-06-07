@@ -1,11 +1,11 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
   const { item, story } = JSON.parse(event.body);
 
   const prompt = `
-Someone is considering buying "${item}" because "${story}".
-Offer a calm, wise reflection on why they may not need to act on this impulse.
+Someone is considering buying "${item}" because "${story}". 
+Offer a calm, wise reflection on why they may not need to act on this impulse. 
 No shame. Just mindfulness and perspective.
 `;
 
@@ -24,7 +24,7 @@ No shame. Just mindfulness and perspective.
     });
 
     const data = await response.json();
-    console.log("OpenAI Response:", JSON.stringify(data)); // Debug log
+    console.log("OpenAI Response:", JSON.stringify(data)); // For debugging
 
     const message = data.choices?.[0]?.message?.content;
 
@@ -33,7 +33,7 @@ No shame. Just mindfulness and perspective.
       body: JSON.stringify({ reflection: message }),
     };
   } catch (err) {
-    console.error("Error in reflection function:", err); // Optional error log
+    console.error("Error:", err); // Optional: log error to Netlify console
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Something went wrong." }),
