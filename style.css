@@ -1,79 +1,74 @@
 body {
-  margin: 0;
-  background: #f9f9f3;
   font-family: 'Zen Kaku Gothic Antique', sans-serif;
-  color: #2b2b2b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  background-color: #f9f8f3;
+  color: #333;
+  margin: 0;
+  padding: 2rem;
 }
 
 .container {
   max-width: 600px;
+  margin: auto;
+  background: white;
   padding: 2rem;
-  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #333;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  font-size: 0.95rem;
 }
 
 input, textarea {
   width: 100%;
-  padding: 0.75rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  background: #fafafa;
-}
-
-textarea {
-  height: 100px;
+  font-family: monospace;
+  background-color: #fefefe;
 }
 
 button {
-  background: #caffbf;
+  padding: 10px 16px;
+  background-color: #c7f6c7;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: sans-serif;
   cursor: pointer;
-  color: #2b2b2b;
-  transition: background 0.2s ease;
+  transition: 0.2s;
 }
 
 button:hover {
-  background: #b7e4c7;
+  background-color: #b3e6b3;
 }
 
 .response {
-  margin-top: 2rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  background: #f3f3ed;
-  padding: 1rem;
-  border-radius: 10px;
+  display: none; /* initially hidden */
+  background-color: #f5f3e8;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 1rem 0;
+  font-family: monospace;
+  white-space: pre-wrap;
 }
 
 .past-log {
   margin-top: 2rem;
-  font-size: 0.95rem;
-  border-top: 1px solid #ccc;
-  padding-top: 1rem;
-}
-
-.mission {
-  margin-top: 3rem;
   font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid #ddd;
-  padding-top: 1rem;
-  text-align: center;
 }
 
+footer.mission {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #777;
+}
