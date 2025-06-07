@@ -1,15 +1,15 @@
 const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
-  const { item, story } = JSON.parse(event.body);
+  try {
+    const { item, story } = JSON.parse(event.body);
 
-  const prompt = `
+    const prompt = `
 Someone is considering buying "${item}" because "${story}".
 Offer a calm, wise reflection on why they may not need to act on this impulse.
 No shame. Just mindfulness and perspective.
 `;
 
-  try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -24,17 +24,26 @@ No shame. Just mindfulness and perspective.
     });
 
     const data = await response.json();
-    const message = data.choices?.[0]?.message?.content;
+
+    if (!data || !data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.error("Unexpected API response format:", data);
+      return {
+        statusCode: 502,
+        body: JSON.stringify({ reflection: "The reflection service returned no usable response." }),
+      };
+    }
+
+    const message = data.choices[0].message.content;
 
     return {
       statusCode: 200,
       body: JSON.stringify({ reflection: message }),
     };
   } catch (err) {
-    console.error("OpenAI API error:", err);
+    console.error("Function error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to connect to reflection service." }),
+      body: JSON.stringify({ error: "Internal Server Error" }),
     };
   }
 };
